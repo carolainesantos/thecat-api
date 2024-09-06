@@ -1,10 +1,17 @@
 import "./App.css";
-import Home from "./pages/home";
+// import { useState } from "react";
+// import Footer from "./components/Footer";
+import Inicial from "./pages/Inicial";
+// import TheCatApi from "./pages/TheCatApi";
 
 function App() {
-  return (<>
-  <Home/>
-  </>);
+  return (
+    <>
+      <Inicial />
+      {/* <Footer /> */}
+      {/* <TheCatApi /> */}
+    </>
+  );
 }
 
 export default App;
