@@ -1,0 +1,42 @@
+.container {
+  background-image: url("../../assets/img/fundo-home.jpg");
+  background-size: cover;
+  background-position: center; /* Centraliza a imagem */
+  height: 130vh; /* Aqui ajusta a altura da imagem */
+}
+
+h1 {
+  color: #4d2a70;
+  padding: 15px;
+  margin: 0;
+  font-size: 62px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.NavBar {
+  background-color: #6c22a6;
+  border-radius: 0 0 42px 42px;
+  margin: 0px 22px 0px 22px;
+  height: 12vh;
+}
+
+.logo-nav img {
+  width: 50px;
+  height: 50px;
+  margin: 15px;
+}
+
+p {
+  margin: 0 120px;
+  font-family: "Poppins", sans-serif;
+  color: #f7efe5;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.strongHome {
+  color: #fff;
+}
