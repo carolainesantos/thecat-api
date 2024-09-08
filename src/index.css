@@ -15,7 +15,7 @@ body {
   justify-content: space-between;
 }
 
-.cat-image {
+.cat-inicio {
   background-image: url("./assets/img/fundo-home.jpg");
   background-size: cover;
   background-position: center;
