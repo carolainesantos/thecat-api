@@ -2,30 +2,14 @@ import "./styles.css";
 
 export default function Inicial() {
   return (
-    <div className="container">
-      <div className="NavBar">
-        <div className="logo-nav">
-          <img
-            className="logo-img"
-            src="../../assets/img/logo.svg"
-            alt="Logo"
-          />
-
-          <div>
-            <a href="Api">Api</a>
-          </div>
-        </div>
-      </div>
-
+    <div id="inicial-page">
       <h1>
-        Bem-vindos à <br /> Sênior<strong className="strongHome">.</strong>{" "}
-        Bigodes!
+        Bem-vindos à <br /> Sr<strong className="strongHome">.</strong> Bigodes!
       </h1>
-
-      <p>
+      <div id="inicio-conteudo">
         Saiba tudo sobre o mundo felino e leve a vida mais rom-rom!
         <br /> Aqui você verá dicas, curiosidades sobre gatos.
-      </p>
+      </div>
     </div>
   );
 }

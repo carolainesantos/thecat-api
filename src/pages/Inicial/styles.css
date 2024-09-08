@@ -1,42 +1,27 @@
-.container {
-  background-image: url("../../assets/img/fundo-home.jpg");
-  background-size: cover;
-  background-position: center; /* Centraliza a imagem */
-  height: 130vh; /* Aqui ajusta a altura da imagem */
+#inicial-page {
+  height: 100vh;
+  width: 90vw;
 }
 
-h1 {
+#inicial-page h1 {
   color: #4d2a70;
-  padding: 15px;
-  margin: 0;
-  font-size: 62px;
-  font-family: "Poppins", sans-serif;
+  font-size: 100px;
   font-weight: 700;
-  margin-left: 100px;
-  margin-top: 30px;
+  margin: 15px 0;
 }
 
-.NavBar {
-  background-color: #6c22a6;
-  border-radius: 0 0 42px 42px;
-  margin: 0px 22px 0px 22px;
-  height: 12vh;
-}
-
-.logo-nav img {
-  width: 50px;
-  height: 50px;
-  margin: 15px;
-}
-
-p {
-  margin: 0 120px;
-  font-family: "Poppins", sans-serif;
+#inicial-page #inicio-conteudo {
   color: #f7efe5;
   font-size: 18px;
   font-weight: 600;
 }
 
-.strongHome {
+#inicial-page .strongHome {
   color: #fff;
+}
+
+@media (max-width: 1366px) {
+  #inicial-page h1 {
+    font-size: 62px;
+  }
 }
