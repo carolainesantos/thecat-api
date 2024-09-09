@@ -22,8 +22,9 @@ const CatCard = () => {
       </div>
       <div className="cat-info">
         <Link to="/felino">
+          <p>🤍🤍🤍</p>
           <h3 className="cat-name">
-            Ficou curioso!?
+            Para ver algumas curiosidades aleatórias
             <br /> Clique Aqui...
           </h3>
         </Link>

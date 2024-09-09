@@ -22,7 +22,6 @@ export default function Felinos() {
         <CatCard />
         <CatCard />
         <CatCard />
-        <CatCard />
       </div>
     </div>
   );

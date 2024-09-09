@@ -7,13 +7,15 @@
   color: #4d2a70;
   font-size: 100px;
   font-weight: 700;
-  margin: 15px 0;
+  margin: 10px 0;
+  text-align: start;
 }
 
-#inicial-page #inicio-conteudo {
+#inicial-page #inicio-conteudo-home {
   color: #f7efe5;
   font-size: 18px;
   font-weight: 600;
+  text-align: start;
 }
 
 #inicial-page .strongHome {

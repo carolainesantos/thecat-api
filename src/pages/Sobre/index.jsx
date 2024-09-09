@@ -14,21 +14,16 @@ export default function Sobre() {
       </div>
 
       <div className="conteudo-sobre">
-        Queremos que este seja um espaço onde você possa aprender mais sobre
-        esses companheiros peludos, ao mesmo tempo em que se diverte.
-      </div>
-
-      <div className="conteudo-sobre">
         Nossa missão é criar um ambiente acolhedor e informativo, onde todos
         donos de gatos e a aficionados por felinos de longa data, possam
         encontrar algo de valor. Sabemos que cada gato tem uma personalidade
-        única e histórias que os tornam especiais.
+        única e histórias que os tornam especiais. Por isso queremos celebrar a
+        diversidade e beleza de cada gato, desde o mais brincalhão até o mais
+        preguiçoso. Esperamos que este seja um espaço onde você possa aprender
+        mais sobre esses companheiros peludos, ao mesmo tempo em que se diverte.
       </div>
 
-      <div className="conteudo-sobre">
-        Queremos celebrar a diversidade e beleza de cada gato, desde o mais
-        brincalhão até o mais preguiçoso.
-      </div>
+      {/* <div className="conteudo-sobre"></div> */}
 
       <div className="conteudo-sobre">
         Cada página deste site foi pensada para capturar a essência desses seres
@@ -42,6 +37,8 @@ export default function Sobre() {
         Obrigado por nos visitar e esperamos que você goste tanto do site quanto
         nós gostamos de criá-lo!
       </div>
+      <p id="details">🤍🤍🤍</p>
+      {/* <h1 id="final-sobre"></h1> */}
     </div>
   );
 }
