@@ -5,6 +5,8 @@ import Inicial from "./pages/Inicial";
 import Sobre from "./pages/Sobre";
 import Felinos from "./pages/Felinos";
 import Felino from "./pages/Felino";
+import Login from "./pages/Login";
+import Cadastro from "./pages/Cadastro";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
 
@@ -28,6 +30,8 @@ function App() {
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/felinos" element={<Felinos />} />
         <Route path="/felino" element={<Felino />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       <Footer />
     </>
