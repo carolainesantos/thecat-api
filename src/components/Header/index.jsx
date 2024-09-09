@@ -14,8 +14,6 @@ export default function Header() {
         <Link to="/sobre">Sobre</Link>
 
         <Link to="/felinos">Felinos</Link>
-
-        {/* <Link to="/api">Api</Link> */}
       </div>
       <div>
         <Link to="/login" className="btn-entrar">

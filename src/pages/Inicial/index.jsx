@@ -6,7 +6,7 @@ export default function Inicial() {
       <h1>
         Bem-vindos à <br /> Sr<strong className="strongHome">.</strong> Bigodes!
       </h1>
-      <div id="inicio-conteudo">
+      <div id="inicio-conteudo-home">
         Saiba tudo sobre o mundo felino e leve a vida mais rom-rom!
         <br /> Aqui você verá dicas, curiosidades sobre gatos.
       </div>
