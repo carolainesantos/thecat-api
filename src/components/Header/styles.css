@@ -12,7 +12,7 @@
 .NavBar .nav-links {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 50px;
 }
 
 .NavBar a {
