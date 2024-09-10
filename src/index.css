@@ -1,0 +1,22 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cat-inicio {
+  background-image: url("./assets/img/fundo-home.jpg");
+  background-size: cover;
+  background-position: center;
+}
