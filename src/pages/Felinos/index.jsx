@@ -1,4 +1,4 @@
-import CatCard from "../../components/Card/CardFelinos";
+import CatCard from "../../components/CardFelinos";
 import "./styles.css";
 
 export default function Felinos() {

@@ -6,7 +6,6 @@ const CatCard = () => {
   const [catImage, setCatImage] = useState("");
 
   useEffect(() => {
-    // Fetch da 1ª API
     fetch("https://api.thecatapi.com/v1/images/search")
       .then((response) => response.json())
       .then((data) => {
