@@ -1,4 +1,4 @@
-.card-cadastro {
+.cardcadastro {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -12,13 +12,13 @@ h2 {
     color: #333;
 }
 
-.card-cadastro label {
+.cardcadastro label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.card-cadastro input {
+.cardcadastro input {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -28,7 +28,7 @@ h2 {
     background-color: #6c22a6;
 }
 
-.card button {
+.cardcadastro button {
     width: 48%;
     padding: 10px;
     border: none;

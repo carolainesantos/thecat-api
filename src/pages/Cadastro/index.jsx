@@ -1,8 +1,7 @@
-import Card-Cadastro from "../../componets/Card/CardCadastro";
-import "./styles.css";
+import CardCadastro from "../../components/Card/CardCadastro";
 
-export default function Card-Cadastro() {
+export default function Cadastro() {
     return (
-        <Card-Cadastro />
+        <CardCadastro />
 );
 }
