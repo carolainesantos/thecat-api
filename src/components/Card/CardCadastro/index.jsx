@@ -1,8 +1,8 @@
 import './styles.css';
 
-export default function Card-Cadastro() {
+export default function CardCadastro() {
     return (
-        <div class="card-cadastro">
+        <div class="cardcadastro">
             <h2>Faça seu cadastro!</h2>
             <form>
                 <label for="nome">Nome Completo</label>
