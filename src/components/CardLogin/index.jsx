@@ -9,29 +9,37 @@ export default function CardLogin() {
       </div>
 
       <form>
-        <label for="nome">Nome</label>
-        <input type="texto" id="nome" name="nome" placeholder="Nome" required />
+        <div className="label-input">
+          <label for="nome">Nome</label>
+          <input
+            type="texto"
+            id="nome"
+            name="nome"
+            placeholder="Nome"
+            required
+          />
 
-        <label for="email">Email</label>
-        <input
-          type="texto"
-          id="email"
-          name="email"
-          placeholder="Email"
-          required
-        />
+          <label for="email">Email</label>
+          <input
+            type="texto"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
 
-        <label for="password">Senha</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Senha"
-          required
-        />
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Senha"
+            required
+          />
+        </div>
 
-        <div>
-          <button type="submit">Entrar</button>
+        <div className="btn-entrar-logar">
+          <button type="submit">ENTRAR</button>
         </div>
       </form>
     </div>
