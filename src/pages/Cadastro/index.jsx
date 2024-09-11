@@ -1,4 +1,4 @@
-import CardCadastro from "../../components/Card/CardCadastro";
+import CardCadastro from "../../components/CardCadastro";
 import './styles.css'
 
 export default function Cadastro() {
