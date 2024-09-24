@@ -12,12 +12,16 @@ class UserApi {
     }
   }
 
-  createUser(req, res) {
+  async createUser(req, res) {
+    const { name, email, password } = req.body;
+
     try {
-      res.send("post");
+      const user = await UserController.createUser(name, email, password);
+      return res.status(201).send(user);
     } catch (e) {
-      console.log("e");
-      res.status(400).send("Post Deu erro");
+      return res
+        .status(400)
+        .send({ error: `Erro ao criar usuário ${e.message}` });
     }
   }
 

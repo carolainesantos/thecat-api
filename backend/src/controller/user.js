@@ -13,7 +13,7 @@ class UserController {
 
     const cypherSenha = await bcrypt.hash(String(password), SALT_VALUE);
 
-    const userValue = await user.create({
+    const userValue = await UserModel.create({
       name,
       email,
       password: cypherSenha,
@@ -26,7 +26,7 @@ class UserController {
       throw new Error("Id obrigatório!");
     }
 
-    const userValue = await user.findByPk(id);
+    const userValue = await UserModel.findByPk(id);
 
     if (!userValue) {
       throw new Error("Usuário não encontrado.");
@@ -35,9 +35,9 @@ class UserController {
   }
 
   async update(id, name, email, password) {
-    const oldUser = await user.findByPk(id);
+    const oldUser = await UserModel.findByPk(id);
     if (email) {
-      const sameEmail = await user.findOne({ where: { email } });
+      const sameEmail = await UserModel.findOne({ where: { email } });
       if (sameEmail && sameEmail.id !== id) {
         throw new Error("Email ja cadastrado");
       }
@@ -67,7 +67,7 @@ class UserController {
       throw new Error("Email e senha são obrigatórios.");
     }
 
-    const userValue = await user.findOne({ where: { email } });
+    const userValue = await UserModel.findOne({ where: { email } });
 
     if (!userValue) {
       throw new Error("[1] Usuário ou senha inválidos.");
