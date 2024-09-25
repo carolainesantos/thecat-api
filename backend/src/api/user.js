@@ -16,7 +16,31 @@ class UserApi {
     const { name, email, password } = req.body;
 
     try {
-      const user = await UserController.createUser(name, email, password);
+      const user = await UserController.createUser(
+        name,
+        email,
+        password,
+        "viewer"
+      );
+      return res.status(201).send(user);
+    } catch (e) {
+      return res
+        .status(400)
+        .send({ error: `Erro ao criar usuário ${e.message}` });
+    }
+  }
+
+  async createUserAdmin(req, res) {
+    const { name, email, password } = req.body;
+
+    try {
+      const user = await UserController.createUser(
+        name,
+        email,
+        password,
+        bloqueado,
+        "admin"
+      );
       return res.status(201).send(user);
     } catch (e) {
       return res
