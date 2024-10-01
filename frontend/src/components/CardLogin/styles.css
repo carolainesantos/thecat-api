@@ -1,15 +1,15 @@
 .card-login {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid #6c22a6;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 420px;
-  height: 500px;
+  height: 440px;
   margin-bottom: 160px;
 }
 
-.label-input {
+.card-login .label-input {
   width: 350px;
   margin-left: 35px;
 }
@@ -19,9 +19,9 @@
   margin-bottom: 20px;
 }
 
-.login-title {
+.card-login .login-title {
   color: #6c22a6;
-  font-size: 38px;
+  font-size: 40px;
 }
 
 .card-login label {
@@ -33,7 +33,7 @@
 .card-login input {
   width: 100%;
   padding: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 32px;
   border: 1px solid #6c22a6;
   border-radius: 5px;
   box-sizing: border-box;
@@ -52,27 +52,22 @@
   margin-bottom: 0px;
 }
 
-.login-inicio {
+.card-login .login-inicio {
   display: flex;
   align-items: first baseline;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.login-detalhe {
-  width: 30px;
+.card-login .login-detalhe {
+  width: 25px;
   height: 8px;
   background-color: #fe8e00;
   margin-bottom: 0;
   border-radius: 5px;
 }
 
-.btn-entrar-logar {
+.card-login .btn-entrar-logar {
   display: flex;
   justify-content: center;
 }
-
-/* .card-login h2 {
-  color: #333;
-  margin-right: 10px;
-} */

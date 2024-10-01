@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export default function CardLogin() {
+  const navigate = useNavigate();
+
+  const handleVoltar = () => {
+    navigate(-1); // Navega para a página anterior
+  };
+
   return (
-    <div class="card-login">
+    <div className="card-login">
       <div className="login-inicio">
         <h2 className="login-title">Login</h2>
         <span className="login-detalhe"></span>
@@ -10,25 +17,16 @@ export default function CardLogin() {
 
       <form>
         <div className="label-input">
-          <label for="nome">Nome</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="texto"
-            id="nome"
-            name="nome"
-            placeholder="Nome"
-            required
-          />
-
-          <label for="email">Email</label>
-          <input
-            type="texto"
+            type="text"
             id="email"
             name="email"
             placeholder="Email"
             required
           />
 
-          <label for="password">Senha</label>
+          <label htmlFor="password">Senha</label>
           <input
             type="password"
             id="password"
@@ -38,8 +36,12 @@ export default function CardLogin() {
           />
         </div>
 
-        <div className="btn-entrar-logar">
+        <div className="btn-container">
+          {" "}
           <button type="submit">ENTRAR</button>
+          <button type="button" onClick={handleVoltar}>
+            VOLTAR
+          </button>{" "}
         </div>
       </form>
     </div>
