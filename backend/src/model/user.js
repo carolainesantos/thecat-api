@@ -22,6 +22,12 @@ class UserModel {
         type: database.db.Sequelize.STRING,
         allowNull: false,
       },
+      role: {
+        type: database.db.Sequelize.STRING,
+        validate: {
+          isIn: [["admin", "viewer"]],
+        },
+      },
     });
   }
 }
