@@ -38,7 +38,6 @@ class UserApi {
         name,
         email,
         password,
-        bloqueado,
         "admin"
       );
       return res.status(201).send(user);
@@ -51,6 +50,7 @@ class UserApi {
 
   updateUser(req, res) {
     try {
+      const id = req.param.id || req.session.id
       res.send("update");
     } catch (e) {
       console.log("e");
@@ -60,6 +60,7 @@ class UserApi {
 
   deleteUser(req, res) {
     try {
+      const id = req.param.id || req.session.id
       res.send("delete");
     } catch (e) {
       console.log("e");

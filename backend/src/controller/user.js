@@ -6,7 +6,7 @@ const SECRET_KEY = "exemplo";
 const SALT_VALUE = 12;
 
 class UserController {
-  async createUser(name, email, password, role, bloqueado) {
+  async createUser(name, email, password, role) {
     if (!name || !email || !password) {
       throw new Error("Nome, email e senha são obrigatórios.");
     }
