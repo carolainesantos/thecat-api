@@ -12,17 +12,45 @@ class UserApi {
     }
   }
 
-  createUser(req, res) {
+  async createUser(req, res) {
+    const { name, email, password } = req.body;
+
     try {
-      res.send("post");
+      const user = await UserController.createUser(
+        name,
+        email,
+        password,
+        "viewer"
+      );
+      return res.status(201).send(user);
     } catch (e) {
-      console.log("e");
-      res.status(400).send("Post Deu erro");
+      return res
+        .status(400)
+        .send({ error: `Erro ao criar usuário ${e.message}` });
+    }
+  }
+
+  async createUserAdmin(req, res) {
+    const { name, email, password } = req.body;
+
+    try {
+      const user = await UserController.createUser(
+        name,
+        email,
+        password,
+        "admin"
+      );
+      return res.status(201).send(user);
+    } catch (e) {
+      return res
+        .status(400)
+        .send({ error: `Erro ao criar usuário ${e.message}` });
     }
   }
 
   updateUser(req, res) {
     try {
+      const id = req.param.id || req.session.id
       res.send("update");
     } catch (e) {
       console.log("e");
@@ -32,6 +60,7 @@ class UserApi {
 
   deleteUser(req, res) {
     try {
+      const id = req.param.id || req.session.id
       res.send("delete");
     } catch (e) {
       console.log("e");
