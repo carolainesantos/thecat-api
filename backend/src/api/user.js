@@ -1,14 +1,15 @@
 const UserController = require("../controller/user");
 
 class UserApi {
-  findUser(req, res) {
+  async findUser(req, res) {
     try {
-      const users = UserController.findAll();
+      console.log("api", req.session);
+      const users = await UserController.findAll();
 
       res.send({ users });
     } catch (e) {
-      console.log("e");
-      res.status(400).send("Get Deu erro");
+      console.log(e);
+      res.status(400).send("Get deu erro");
     }
   }
 
@@ -50,7 +51,7 @@ class UserApi {
 
   updateUser(req, res) {
     try {
-      const id = req.param.id || req.session.id
+      const id = req.param.id || req.session.id;
       res.send("update");
     } catch (e) {
       console.log("e");
@@ -60,11 +61,23 @@ class UserApi {
 
   deleteUser(req, res) {
     try {
-      const id = req.param.id || req.session.id
+      const id = req.param.id || req.session.id;
       res.send("delete");
     } catch (e) {
       console.log("e");
       res.status(400).send("Delete Deu erro");
+    }
+  }
+
+  async login(req, res) {
+    const { email, password } = req.body;
+    console.log(req.body);
+    try {
+      const token = await UserController.login(email, password);
+
+      res.status(200).send({ token });
+    } catch (e) {
+      res.status(400).send({ error: e.message });
     }
   }
 }

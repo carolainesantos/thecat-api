@@ -22,6 +22,9 @@ class UserModel {
         type: database.db.Sequelize.STRING,
         allowNull: false,
       },
+      blocked: {
+        type: database.db.Sequelize.BOOLEAN,
+      },
       role: {
         type: database.db.Sequelize.STRING,
         validate: {

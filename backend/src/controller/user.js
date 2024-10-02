@@ -12,7 +12,7 @@ class UserController {
     }
 
     const cypherSenha = await bcrypt.hash(String(password), SALT_VALUE);
-
+    console.log(role);
     const userValue = await UserModel.create({
       name,
       email,
@@ -33,6 +33,12 @@ class UserController {
       throw new Error("Usuário não encontrado.");
     }
     return userValue;
+  }
+
+  async findAll() {
+    const users = await UserModel.findAll();
+
+    return users;
   }
 
   async update(id, name, email, password) {
