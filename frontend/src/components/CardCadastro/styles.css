@@ -79,16 +79,6 @@
   margin-top: 0px;
 }
 
-.btn-enviar {
-  background-color: #6c22a6;
-  color: #fccd2a;
-}
-
-.btn-enviar:hover {
-  background-color: #4b0082;
-  color: #fbb32e;
-}
-
 .btn-cancelar {
   background-color: #fff;
   color: #6c22a6;
