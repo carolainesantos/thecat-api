@@ -90,9 +90,6 @@
 }
 
 .cardcadastro label {
-  /* margin-bottom: 5px; */
-  /* color: #6c22a6;  */
-  /* font-weight: 600; */
   font-size: 18px;
 }
 
@@ -113,5 +110,5 @@
 }
 
 .cardcadastro input::placeholder {
-  color: #6c22a6; /* Mesma cor para o placeholder em todos os inputs */
+  color: #6c22a6;
 }
