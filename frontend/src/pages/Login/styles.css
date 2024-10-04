@@ -1,5 +1,10 @@
 .Title-Login {
-  color: #4d2a70;
+  color: #8967b3;
   font-size: 58px;
-  font-weight: 100;
+  font-weight: 500;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.fundo-login {
+  background-color: aqua;
 }

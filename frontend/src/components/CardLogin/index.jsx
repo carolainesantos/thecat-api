@@ -37,11 +37,12 @@ export default function CardLogin() {
         </div>
 
         <div className="btn-container">
-          {" "}
-          <button type="submit">ENTRAR</button>
-          <button type="button" onClick={handleVoltar}>
+          <button type="submit" className="btn-entrar">
+            ENTRAR
+          </button>
+          <button type="button" onClick={handleVoltar} className="btn-voltar">
             VOLTAR
-          </button>{" "}
+          </button>
         </div>
       </form>
     </div>

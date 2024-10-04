@@ -12,6 +12,8 @@
 .card-login .label-input {
   width: 350px;
   margin-left: 35px;
+  color: #6c22a6;
+  font-size: 18px;
 }
 
 .card-login h2 {
@@ -40,18 +42,6 @@
   background-color: #fff;
 }
 
-.card-login button {
-  width: 30%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fbb32e;
-  font-size: 18px;
-  font-weight: 800;
-  background-color: #6c22a6;
-  margin-bottom: 0px;
-}
-
 .card-login .login-inicio {
   display: flex;
   align-items: first baseline;
@@ -60,14 +50,38 @@
 }
 
 .card-login .login-detalhe {
-  width: 25px;
+  width: 22px;
   height: 8px;
   background-color: #fe8e00;
   margin-bottom: 0;
   border-radius: 5px;
 }
 
-.card-login .btn-entrar-logar {
+.card-login .btn-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+}
+
+.card-login .btn-container button {
+  margin: 0 10px;
+}
+
+.btn-entrar {
+  color: #fccd2a;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn-voltar {
+  background-color: #fff;
+  border: 1px solid #6c22a6;
+  color: #6c22a6;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn-voltar:hover {
+  background-color: #eee;
+  color: #9649d1;
 }
