@@ -54,7 +54,7 @@ class UserApi {
       const id = req.param.id || req.session.id;
       res.send("update");
     } catch (e) {
-      console.log("e");
+      console.log(e);
       res.status(400).send("Update Deu erro");
     }
   }
@@ -64,7 +64,7 @@ class UserApi {
       const id = req.param.id || req.session.id;
       res.send("delete");
     } catch (e) {
-      console.log("e");
+      console.log(e);
       res.status(400).send("Delete Deu erro");
     }
   }
