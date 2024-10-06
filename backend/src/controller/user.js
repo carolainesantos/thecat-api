@@ -12,7 +12,7 @@ class UserController {
     }
 
     const cypherSenha = await bcrypt.hash(String(password), SALT_VALUE);
-
+    console.log(role);
     const userValue = await UserModel.create({
       name,
       email,
@@ -33,6 +33,12 @@ class UserController {
       throw new Error("Usuário não encontrado.");
     }
     return userValue;
+  }
+
+  async findAll() {
+    const users = await UserModel.findAll();
+
+    return users;
   }
 
   async update(id, name, email, password) {
@@ -71,12 +77,12 @@ class UserController {
     const userValue = await UserModel.findOne({ where: { email } });
 
     if (!userValue) {
-      throw new Error("[1] Usuário ou senha inválidos.");
+      throw new Error("Usuário ou senha inválidos.");
     }
 
     const senhaValida = bcrypt.compare(String(password), userValue.password);
     if (!senhaValida) {
-      throw new Error("[2] Usuário ou senha inválidos.");
+      throw new Error("Usuário ou senha inválidos.");
     }
 
     return jwt.sign({ id: userValue.id }, SECRET_KEY, { expiresIn: 60 * 60 });
