@@ -12,6 +12,7 @@ import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
+  const currentPage = location.pathname;
 
   useEffect(() => {
     const currentPage = location.pathname;
@@ -24,7 +25,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      {currentPage !== "/login" && currentPage !== "/cadastro" ? (
+        <Header />
+      ) : null}
       <Routes>
         <Route path="/" element={<Inicial />} />
         <Route path="/sobre" element={<Sobre />} />
@@ -33,7 +36,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
-      <Footer />
+      {currentPage !== "/login" && currentPage !== "/cadastro" ? (
+        <Footer />
+      ) : null}
     </>
   );
 }
