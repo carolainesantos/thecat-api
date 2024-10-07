@@ -8,15 +8,15 @@ userRouter.post("/login", UserApi.login);
 
 //Rotas Usuario Comum
 userRouter.post("/", UserApi.createUser);
-userRouter.put("/:id", UserApi.updateUser);
-userRouter.get("/", authMiddleware(), UserApi.findUser);
-userRouter.get("/:id", authMiddleware(), UserApi.findUser);
+userRouter.get("/info", authMiddleware(), UserApi.findUserById);
+userRouter.put("/", authMiddleware(), UserApi.updateUser);
 userRouter.delete("/", authMiddleware(), UserApi.deleteUser);
 
 //Rotas Admin
 userRouter.post("/admin", authMiddleware(["admin"]), UserApi.createUserAdmin);
+userRouter.get("/", authMiddleware(["admin"]), UserApi.findAll);
+userRouter.get("/:id", authMiddleware(["admin"]), UserApi.findUserById);
 userRouter.put("/:id", authMiddleware(["admin"]), UserApi.updateUser);
-userRouter.get("/", authMiddleware(["admin"]), UserApi.findUser);
 userRouter.delete("/:id", authMiddleware(["admin"]), UserApi.deleteUser);
 
 module.exports = userRouter;

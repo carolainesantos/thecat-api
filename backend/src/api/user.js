@@ -1,15 +1,26 @@
 const UserController = require("../controller/user");
 
 class UserApi {
-  async findUser(req, res) {
+  async findUserById(req, res) {
     try {
-      console.log("api", req.session);
-      const users = await UserController.findAll();
+      const id = req.session.id;
+      const user = await UserController.findUserById(id);
 
-      res.send({ users });
+      res.send({ user });
     } catch (e) {
       console.log(e);
-      res.status(400).send("Get deu erro");
+      res.status(400).send("Erro ao consultar usuário");
+    }
+  }
+
+  async findAll(req, res) {
+    try {
+      const users = await UserController.findAll();
+      return res.status(200).send(users);
+    } catch (e) {
+      return res
+        .status(400)
+        .send({ error: `Erro ao listar usuário ${e.message}` });
     }
   }
 
@@ -49,23 +60,34 @@ class UserApi {
     }
   }
 
-  updateUser(req, res) {
+  async updateUser(req, res) {
     try {
-      const id = req.param.id || req.session.id;
-      res.send("update");
+      const id = req.params.id || req.session.id;
+      const actualRole = req.session.role;
+      const { name, email, password, blocked } = req.body;
+      const updated = await UserController.update(
+        id,
+        name,
+        email,
+        password,
+        blocked,
+        actualRole
+      );
+      res.status(200).send(updated);
     } catch (e) {
       console.log(e);
-      res.status(400).send("Update Deu erro");
+      res.status(400).send("Erro ao atualizar");
     }
   }
 
-  deleteUser(req, res) {
+  async deleteUser(req, res) {
     try {
-      const id = req.param.id || req.session.id;
-      res.send("delete");
+      const id = req.session.id;
+      await UserController.delete(id);
+      return res.status(204).send();
     } catch (e) {
       console.log(e);
-      res.status(400).send("Delete Deu erro");
+      res.status(400).send("Erro ao deletar usuário");
     }
   }
 

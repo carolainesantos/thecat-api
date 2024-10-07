@@ -22,7 +22,7 @@ class UserController {
     return userValue;
   }
 
-  async findUser(id) {
+  async findUserById(id) {
     if (id === undefined) {
       throw new Error("Id obrigatório!");
     }
@@ -41,7 +41,7 @@ class UserController {
     return users;
   }
 
-  async update(id, name, email, password) {
+  async update(id, name, email, password, blocked, actualRole) {
     const oldUser = await UserModel.findByPk(id);
     if (email) {
       const sameEmail = await UserModel.findOne({ where: { email } });
@@ -49,6 +49,11 @@ class UserController {
         throw new Error("Email ja cadastrado");
       }
     }
+
+    if (actualRole === "admin") {
+      oldUser.blocked = blocked || oldUser.blocked;
+    }
+
     oldUser.name = name || oldUser.name;
     oldUser.email = email || oldUser.email;
     oldUser.password = password
@@ -64,7 +69,7 @@ class UserController {
       throw new Error("Id é obrigatório");
     }
 
-    const userValue = await this.findUser(id);
+    const userValue = await this.findUserById(id);
     userValue.destroy();
     return;
   }
@@ -80,12 +85,16 @@ class UserController {
       throw new Error("Usuário ou senha inválidos.");
     }
 
-    const senhaValida = bcrypt.compare(String(password), userValue.password);
+    const senhaValida = await bcrypt.compare(
+      String(password),
+      userValue.password
+    );
     if (!senhaValida) {
       throw new Error("Usuário ou senha inválidos.");
     }
-
-    return jwt.sign({ id: userValue.id }, SECRET_KEY, { expiresIn: 60 * 60 });
+    return jwt.sign({ id: userValue.id, role: userValue.role }, SECRET_KEY, {
+      expiresIn: 60 * 60,
+    });
   }
 }
 
