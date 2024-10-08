@@ -49,7 +49,7 @@ O projeto implementa:
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/thecatapi.git
+   git clone git@github.com:carolainesantos/thecat-api.git
    ```
 
 2. Instale as dependências:
