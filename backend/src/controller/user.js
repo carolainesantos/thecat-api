@@ -49,7 +49,7 @@ class UserController {
         throw new Error("Email ja cadastrado");
       }
     }
-
+    console.log(actualRole, blocked);
     if (actualRole === "admin") {
       oldUser.blocked = blocked || oldUser.blocked;
     }
@@ -82,7 +82,11 @@ class UserController {
     const userValue = await UserModel.findOne({ where: { email } });
 
     if (!userValue) {
-      throw new Error("Usuário ou senha inválidos.");
+      throw new Error("Email ou senha inválidos.");
+    }
+
+    if (userValue.blocked) {
+      throw new Error("Usuário bloqueado. Contate o administrador.");
     }
 
     const senhaValida = await bcrypt.compare(
@@ -92,6 +96,7 @@ class UserController {
     if (!senhaValida) {
       throw new Error("Usuário ou senha inválidos.");
     }
+
     return jwt.sign({ id: userValue.id, role: userValue.role }, SECRET_KEY, {
       expiresIn: 60 * 60,
     });

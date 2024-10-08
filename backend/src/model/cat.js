@@ -8,6 +8,9 @@ class CatsModel {
         autoIncrement: true,
         primaryKey: true,
       },
+      code: {
+        type: database.db.Sequelize.STRING,
+      },
       breed: {
         type: database.db.Sequelize.STRING,
       },
