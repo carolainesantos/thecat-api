@@ -29,6 +29,7 @@ function authMiddleware(roles = []) {
 
         next();
       } catch (error) {
+        console.error(error);
         return res.status(403).json({ mensagem: "Você não possui permissão" });
       }
     });
