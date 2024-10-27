@@ -6,15 +6,20 @@ const SECRET_KEY = "exemplo";
 const SALT_VALUE = 12;
 
 class UserController {
-  async createUser(name, email, password, role) {
-    if (!name || !email || !password) {
-      throw new Error("Nome, email e senha são obrigatórios.");
+  async createUser(name, tel, dtNasc, cep, email, password, role) {
+    if (!name || !tel || !dtNasc || !cep || !email || !password) {
+      throw new Error(
+        "Nome, telefone, data de nascimento, cep, email e senha são obrigatórios."
+      );
     }
 
     const cypherSenha = await bcrypt.hash(String(password), SALT_VALUE);
     console.log(role);
     const userValue = await UserModel.create({
       name,
+      tel,
+      dtNasc,
+      cep,
       email,
       password: cypherSenha,
       role,
@@ -41,7 +46,18 @@ class UserController {
     return users;
   }
 
-  async update(id, name, email, password, blocked, actualRole) {
+  async update(
+    id,
+    name,
+    tel,
+    dtNasc,
+    cep,
+    email,
+    password,
+    blocked,
+    actualRole
+  ) {
+    console.log("oiii");
     const oldUser = await UserModel.findByPk(id);
     if (email) {
       const sameEmail = await UserModel.findOne({ where: { email } });
@@ -55,6 +71,9 @@ class UserController {
     }
 
     oldUser.name = name || oldUser.name;
+    oldUser.tel = tel || oldUser.tel;
+    oldUser.dtNasc = dtNasc || oldUser.dtNasc;
+    oldUser.cep = cep || oldUser.cep;
     oldUser.email = email || oldUser.email;
     oldUser.password = password
       ? await bcrypt.hash(String(password), SALT_VALUE)

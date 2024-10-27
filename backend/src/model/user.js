@@ -13,6 +13,18 @@ class UserModel {
         type: database.db.Sequelize.STRING,
         allowNull: false,
       },
+      tel: {
+        type: database.db.Sequelize.STRING,
+        allowNull: false,
+      },
+      dtNasc: {
+        type: database.db.Sequelize.DATE,
+        allowNull: false,
+      },
+      cep: {
+        type: database.db.Sequelize.STRING,
+        allowNull: false,
+      },
       email: {
         type: database.db.Sequelize.STRING,
         allowNull: false,
