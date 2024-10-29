@@ -3,7 +3,6 @@ const user = require("../controller/user");
 
 function authMiddleware(roles = []) {
   return (req, res, next) => {
-    console.log("oies");
     const token = req.headers["authorization"];
 
     if (!token) {
