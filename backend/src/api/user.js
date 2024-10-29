@@ -25,11 +25,14 @@ class UserApi {
   }
 
   async createUser(req, res) {
-    const { name, email, password } = req.body;
+    const { name, email, tel, dtNasc, cep, password } = req.body;
 
     try {
       const user = await UserController.createUser(
         name,
+        tel,
+        dtNasc,
+        cep,
         email,
         password,
         "viewer"
@@ -43,11 +46,13 @@ class UserApi {
   }
 
   async createUserAdmin(req, res) {
-    const { name, email, password } = req.body;
-
+    const { name, tel, dtNasc, cep, email, password } = req.body;
     try {
       const user = await UserController.createUser(
         name,
+        tel,
+        dtNasc,
+        cep,
         email,
         password,
         "admin"
@@ -64,10 +69,13 @@ class UserApi {
     try {
       const id = req.params.id || req.session.id;
       const actualRole = req.session.role;
-      const { name, email, password, blocked } = req.body;
+      const { name, tel, dtNasc, cep, email, password, blocked } = req.body;
       const updated = await UserController.update(
         id,
         name,
+        tel,
+        dtNasc,
+        cep,
         email,
         password,
         blocked,
@@ -82,7 +90,7 @@ class UserApi {
 
   async deleteUser(req, res) {
     try {
-      const id = req.session.id;
+      const id = req.params.id || req.session.id;
       await UserController.delete(id);
       return res.status(204).send();
     } catch (e) {

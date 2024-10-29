@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import translate from "translate";
+translate.engine = "google";
 import "./styles.css";
 
 const Felino = () => {
@@ -11,8 +13,9 @@ const Felino = () => {
     try {
       // Fetch 2ª Api
       const factResponse = await fetch("https://meowfacts.herokuapp.com/");
-      const factData = await factResponse.json();
-      setCatFact(factData.data[0]);
+      const { data } = await factResponse.json();
+      const factDataTranslated = await translate(data, "pt");
+      setCatFact(factDataTranslated);
 
       // imagem de gato da 1ª Api
       const imageResponse = await fetch(
@@ -31,14 +34,16 @@ const Felino = () => {
 
   return (
     <div className="felino-page-info">
-      <h1 id="title-curiosidades">Fatos & Curiosidades!</h1>
-      <div className="felino-content2">
-        {catImage && <img className="info-cat2" src={catImage} alt="Gato" />}
-        <div className="info">
-          <p>{catFact}</p>
+      <div className="container-fatos">
+        <h1 id="title-curiosidades">Fatos & Curiosidades!</h1>
+        <div className="felino-content2">
+          {catImage && <img className="info-cat2" src={catImage} alt="Gato" />}
+          <div className="info">
+            <p>{catFact}</p>
+          </div>
         </div>
+        <button onClick={() => navigate(-1)}>Voltar</button>
       </div>
-      <button onClick={() => navigate(-1)}>Voltar</button>
     </div>
   );
 };
