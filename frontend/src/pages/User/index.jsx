@@ -1,38 +1,51 @@
-import { createUser } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import { createUser, createUserAdmin, updateUserAdmin } from "../../api/user";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "./styles.css";
 
-export default function Cadastro() {
+export default function User() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { isUpdate, user } = location.state || {};
 
   const handleBackClick = () => {
-    navigate("/login");
+    navigate("/users");
   };
 
-  const [name, setName] = useState("");
-  const [tel, setTel] = useState("");
-  const [dtNasc, setDtNasc] = useState("");
-  const [cep, setCep] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [id, setId] = useState(user?.id || "");
+  const [name, setName] = useState(user?.name || "");
+  const [tel, setTel] = useState(user?.tel || "");
+  const [dtNasc, setDtNasc] = useState(user?.dtNasc || "");
+  const [cep, setCep] = useState(user?.cep || "");
+  const [email, setEmail] = useState(user?.email || "");
+  const [password, setPassword] = useState(user?.password || "");
 
   const handleSummit = async (e) => {
     try {
       e.preventDefault();
-
-      const responseApi = await createUser({
-        name,
-        tel,
-        dtNasc,
-        cep,
-        email,
-        password,
-      });
-      console.log(responseApi);
+      let responseApi;
+      if (isUpdate) {
+        responseApi = await updateUserAdmin(id, {
+          name,
+          tel,
+          dtNasc,
+          cep,
+          email,
+          password,
+        });
+      } else {
+        responseApi = await createUserAdmin({
+          name,
+          tel,
+          dtNasc,
+          cep,
+          email,
+          password,
+        });
+      }
       if (responseApi.id) {
-        navigate("/login");
+        navigate("/users");
       } else {
         console.log(responseApi);
       }
@@ -51,7 +64,9 @@ export default function Cadastro() {
   return (
     <>
       <div className="div-cadastro">
-        <h2 className="title-cadastro">Faça seu cadastro!</h2>
+        <h2 className="title-cadastro">
+          {!isUpdate ? "Criando" : "Alterando"} um usuário
+        </h2>
       </div>
 
       <div className="cardcadastro">

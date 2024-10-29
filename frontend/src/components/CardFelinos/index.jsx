@@ -1,36 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import "./styles.css";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
-const CatCard = () => {
-  const [catImage, setCatImage] = useState("");
-
-  useEffect(() => {
-    fetch("https://api.thecatapi.com/v1/images/search")
-      .then((response) => response.json())
-      .then((data) => {
-        setCatImage(data[0].url);
-      })
-      .catch((error) => console.error("Erro ao carregar a imagem:", error));
-  }, []);
-
+export default function CatCard({
+  data: cat,
+  viewButton,
+  onClickUpdate,
+  onClickDelete,
+}) {
   return (
     <div className="cat-card">
       <div className="cat-image">
-        <img className="cats" src={catImage} alt="Imagem de Gato" />
+        <p className="raca">
+          <div>
+            Raça: <strong> {cat.breed}</strong>
+          </div>
+          {viewButton && (
+            <div className="actions">
+              <FaEdit
+                className="icon"
+                onClick={onClickUpdate}
+                title="Alterar"
+              />
+              <FaTrashAlt
+                className="icon"
+                onClick={onClickDelete}
+                title="Deletar"
+              />
+            </div>
+          )}
+        </p>
+        <p className="temp">Temperamento: {cat.temperament}</p>
+        <img className="cats" src={cat.image} alt="Imagem de Gato" />
       </div>
       <div className="cat-info">
         <Link to="/felino">
           <p>🤍🤍🤍</p>
-          <h3 className="cat-name">
-            Para ver algumas curiosidades aleatórias
-            <br /> Clique Aqui...
-          </h3>
+          <h3 className="cat-name">Curiosidades aqui!</h3>
         </Link>
       </div>
     </div>
   );
-};
-
-export default CatCard;
+}

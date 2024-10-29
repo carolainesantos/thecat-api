@@ -36,9 +36,9 @@ class CatsController {
 
     if (!cats.length) {
       const apiKey =
-        "live_hVIZ29uXTZKRfZBeO3EcBdrThj9U5vw88QF9QOFijGEAIaWVjyNRqFMNPJ6WT1qf "; // Coloque sua API key aqui
+        "live_hVIZ29uXTZKRfZBeO3EcBdrThj9U5vw88QF9QOFijGEAIaWVjyNRqFMNPJ6WT1qf ";
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=${apiKey}`
+        `https://api.thecatapi.com/v1/images/search?limit=101&api_key=${apiKey}`
       );
       const apiData = await response.json();
 

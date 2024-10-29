@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.svg";
-// import Separador from "../../assets/img/separador-login.svg";
 import "./styles.css";
+import { AuthContext } from "../../auth/Context";
+import { useContext } from "react";
 
 export default function Header() {
+  const { token, role, logout } = useContext(AuthContext);
   return (
     <header className="NavBar">
       <Link to="/">
@@ -14,15 +16,27 @@ export default function Header() {
         <Link to="/sobre">Sobre</Link>
 
         <Link to="/felinos">Felinos</Link>
+
+        <Link to="/profile">Perfil</Link>
+
+        {role === "admin" ? <Link to="/users">Usuários</Link> : null}
       </div>
-      <div>
-        <Link to="/login" className="btn-entrar">
-          Entrar
-        </Link>
-        <Link to="/cadastro" className="btn-cadastro">
-          Cadastre-se
-        </Link>
-      </div>
+      {!token ? (
+        <div>
+          <Link to="/login" className="btn-entrar">
+            Entrar
+          </Link>
+          <Link to="/cadastro" className="btn-cadastro">
+            Cadastre-se
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <button className="btn-logout" onClick={logout}>
+            Sair
+          </button>
+        </div>
+      )}
     </header>
   );
 }
