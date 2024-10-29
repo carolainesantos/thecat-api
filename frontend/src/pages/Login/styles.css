@@ -16,7 +16,7 @@
   border: 1px solid #6c22a6;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 420px;
-  height: 440px;
+  height: 480px;
   margin-bottom: 160px;
 }
 
@@ -40,7 +40,12 @@
 .card-login label {
   display: block;
   margin-bottom: 5px;
+  padding: 0px;
   font-weight: bold;
+}
+
+p {
+  margin: 0;
 }
 
 .card-login input {
@@ -76,6 +81,27 @@
 
 .card-login .btn-container button {
   margin: 0 10px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.register-link {
+  font-size: 14px;
+  padding: 0;
+  margin-top: 0;
+  padding-right: 50px;
+  color: #8a6ab8;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  color: #6c22a6;
+  transition: color 0.3s ease;
+  text-decoration: underline;
 }
 
 .btn-entrar {

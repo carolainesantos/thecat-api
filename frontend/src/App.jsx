@@ -15,6 +15,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import Cat from "./pages/Cat";
 import Profile from "./pages/Profile";
+import ListUsers from "./pages/Users";
+import User from "./pages/User";
 
 function App() {
   const location = useLocation();
@@ -42,7 +44,8 @@ function App() {
           <Route path="/felino" element={<Felino />} />
           <Route path="/cat" element={<Cat />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/users" element={<Cat />} />
+          <Route path="/users" element={<ListUsers />} />
+          <Route path="/user" element={<User />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />

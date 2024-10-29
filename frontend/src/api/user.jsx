@@ -8,7 +8,6 @@ export const createUser = async (user) => {
 };
 
 export const updateUser = async (user) => {
-  console.log("oi4", user);
   const response = await api.put(`/api/v1/user`, user);
   return response.data;
 };
@@ -40,7 +39,7 @@ export const createUserAdmin = async (user) => {
 };
 
 export const getAllUsers = async () => {
-  const response = await api.get("/api/v1/users");
+  const response = await api.get("/api/v1/user");
   return response.data;
 };
 

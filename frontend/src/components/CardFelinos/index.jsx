@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./styles.css";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export default function CatCard({
   data: cat,
@@ -12,27 +13,32 @@ export default function CatCard({
   return (
     <div className="cat-card">
       <div className="cat-image">
-        <>
-          <p className="raca">
+        <p className="raca">
+          <div>
             Raça: <strong> {cat.breed}</strong>
-          </p>
-          <p className="temp">Temperamento: {cat.temperament}</p>
+          </div>
           {viewButton && (
-            <>
-              <button onClick={onClickUpdate}>E</button>
-              <button onClick={onClickDelete}>D</button>
-            </>
+            <div className="actions">
+              <FaEdit
+                className="icon"
+                onClick={onClickUpdate}
+                title="Alterar"
+              />
+              <FaTrashAlt
+                className="icon"
+                onClick={onClickDelete}
+                title="Deletar"
+              />
+            </div>
           )}
-        </>
+        </p>
+        <p className="temp">Temperamento: {cat.temperament}</p>
         <img className="cats" src={cat.image} alt="Imagem de Gato" />
       </div>
       <div className="cat-info">
         <Link to="/felino">
           <p>🤍🤍🤍</p>
-          <h3 className="cat-name">
-            curiosidades aleatórias
-            <br /> Clique Aqui...
-          </h3>
+          <h3 className="cat-name">Curiosidades aqui!</h3>
         </Link>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/Context";
 import AddButton from "../../components/AddButton";
+import { FaTrashAlt, FaEdit } from "react-icons/fa"; // Importar os ícones
 
 export default function Felinos() {
   const { role } = useContext(AuthContext);
@@ -15,12 +16,16 @@ export default function Felinos() {
   function handleAddClick() {
     navigate("/cat");
   }
+
   function handleClickUpdate(cat) {
     navigate("/cat", { state: { isUpdate: true, cat } });
   }
+
   async function handleClickDelete(id) {
     try {
-      // TODO: perguntar se tem certeza q quer deletar
+      const confirmDelete = window.confirm("Tem certeza que deseja deletar?");
+      if (!confirmDelete) return;
+
       await deleteCat(id);
       toast("Deletado com Sucesso");
       await listar();

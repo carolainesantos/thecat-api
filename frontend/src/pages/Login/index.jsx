@@ -15,6 +15,10 @@ export default function Login() {
     navigate("/");
   };
 
+  const handleRegisterClick = () => {
+    navigate("/cadastro");
+  };
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -73,6 +77,12 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p>
+              Não Possui conta?
+              <span onClick={handleRegisterClick} className="register-link">
+                Clique Aqui
+              </span>
+            </p>
           </div>
 
           <div className="btn-container">

@@ -3,20 +3,23 @@ import "./styles.css";
 import { AuthContext } from "../../auth/Context";
 import { useNavigate } from "react-router-dom";
 import { deleteUser, getContext, updateUser } from "../../api/user";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 export default function Profile() {
   const { logout } = useContext(AuthContext);
-  const [id, setId] = useState("a");
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [dtNasc, setDtNasc] = useState("");
+  const [blocked, setBlocked] = useState("");
   const [cep, setCep] = useState("");
   const [email, setEmail] = useState("");
 
   const [updName, setUpdName] = useState("");
   const [updTel, setUpdTel] = useState("");
   const [updDtNasc, setUpdDtNasc] = useState("");
+  // Aqui blocked
   const [updCep, setUpdCep] = useState("");
   const [updEmail, setUpdEmail] = useState("");
   const [updPassword, setUpdPassword] = useState("");
@@ -102,6 +105,13 @@ export default function Profile() {
   return (
     <div className="profile">
       <div className="info">
+        <div className="icons">
+          <FaEdit onClick={handleClickUpdate} className="icon edit-icon" />
+          <FaTrashAlt
+            onClick={handleClickDelete}
+            className="icon delete-icon"
+          />
+        </div>
         <h1>Dados do seu perfil</h1>
         <p>
           Nome:
@@ -168,6 +178,7 @@ export default function Profile() {
             />
           )}
         </p>
+
         {isUpdate && (
           <p>
             Senha:
@@ -180,12 +191,7 @@ export default function Profile() {
           </p>
         )}
         {!isUpdate ? (
-          <div className="actions">
-            <button onClick={handleClickDelete}>Excluir Conta</button>
-            <button className="primary" onClick={handleClickUpdate}>
-              Alterar Dados
-            </button>
-          </div>
+          <div className="actions"></div>
         ) : (
           <div className="actions">
             <button onClick={() => setIsUpdate(false)}>Cancelar</button>

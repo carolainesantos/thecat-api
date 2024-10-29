@@ -2,15 +2,16 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: green;
+  background-color: #6c22a6;
   color: #fff;
   bottom: 20px;
   right: 20px;
   position: fixed;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .addButton:hover {
-  background-color: rgb(6, 69, 6);
+  background-color: #aa5fd4;
 }

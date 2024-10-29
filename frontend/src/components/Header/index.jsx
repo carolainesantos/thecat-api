@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/img/logo.svg";
-// import Separador from "../../assets/img/separador-login.svg";
 import "./styles.css";
 import { AuthContext } from "../../auth/Context";
 import { useContext } from "react";
@@ -33,7 +32,9 @@ export default function Header() {
         </div>
       ) : (
         <div>
-          <button onClick={logout}>Sair</button>
+          <button className="btn-logout" onClick={logout}>
+            Sair
+          </button>
         </div>
       )}
     </header>

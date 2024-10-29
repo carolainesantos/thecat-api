@@ -51,9 +51,8 @@ export default function Cat() {
         <h2 className="title-cadastro">Cadastro de Gato!</h2>
       </div>
 
-      <div className="cardcadastro">
+      <div className="card-cadastro">
         <form>
-          {/* Primeira linha: Nome Completo e Telefone */}
           <div className="row">
             <div className="input-container">
               <label htmlFor="raca">Raça</label>
@@ -67,16 +66,14 @@ export default function Cat() {
                 onChange={(e) => setBreed(e.target.value)}
               />
             </div>
-          </div>
 
-          {/* Segunda linha: Data de Nascimento e CEP */}
-          <div className="row">
             <div className="input-container">
               <label htmlFor="image">Image</label>
               <input
                 type="text"
                 id="image"
                 name="image"
+                placeholder="url"
                 required
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
@@ -84,9 +81,8 @@ export default function Cat() {
             </div>
           </div>
 
-          {/* Terceira linha: Email e Senha */}
           <div className="row">
-            <div className="input-container">
+            <div className="temperament">
               <label htmlFor="temperament">Temperamento</label>
               <input
                 type="texto"

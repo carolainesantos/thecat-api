@@ -1,3 +1,13 @@
+.title-cadastro {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 5%;
+  color: #6c22a6;
+  font-size: 50px;
+}
+
+/* estilo do componente */
+
 .cardcadastro {
   background-color: white;
   border: 1px solid #6c22a6;

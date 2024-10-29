@@ -1,0 +1,68 @@
+.table-test {
+  border: 1px solid #9649d1;
+  border-radius: 10px;
+  padding: 2px;
+  margin-bottom: 50px;
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th,
+.table tr {
+  border-bottom: 1px solid #9649d1;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.table tr:last-child {
+  border: none;
+}
+
+.table tr:hover {
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.icon {
+  color: #8967b3;
+  font-size: 20px;
+  transition: transform 0.2s;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.container-add-user {
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+.incluir-novo {
+  background-color: #9649d1;
+  color: white;
+  font-size: 16px;
+  padding: 0px;
+  padding: 10px 20px;
+  width: 170px;
+  height: 42px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.incluir-novo:hover {
+  font-size: 16px;
+  transform: scale(1.05);
+}
