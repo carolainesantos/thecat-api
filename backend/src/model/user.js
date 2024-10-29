@@ -36,6 +36,7 @@ class UserModel {
       },
       blocked: {
         type: database.db.Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       role: {
         type: database.db.Sequelize.STRING,

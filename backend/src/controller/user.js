@@ -54,10 +54,9 @@ class UserController {
     cep,
     email,
     password,
-    blocked,
+    blocked = false,
     actualRole
   ) {
-    console.log("oiii");
     const oldUser = await UserModel.findByPk(id);
     if (email) {
       const sameEmail = await UserModel.findOne({ where: { email } });
@@ -65,9 +64,9 @@ class UserController {
         throw new Error("Email ja cadastrado");
       }
     }
-    console.log(actualRole, blocked);
+    console.log(oldUser);
     if (actualRole === "admin") {
-      oldUser.blocked = blocked || oldUser.blocked;
+      oldUser.blocked = blocked || oldUser?.blocked;
     }
 
     oldUser.name = name || oldUser.name;
