@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js",
+    "start":"node index.js",
     "test": "jest --coverage"
   },
   "author": "Carolaine e Dayane",
