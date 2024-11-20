@@ -38,8 +38,8 @@ function App() {
       ) : null}
       <Routes>
         <Route path="/" element={<Inicial />} />
-        <Route element={<PrivateRoute />}>
           <Route path="/sobre" element={<Sobre />} />
+        <Route element={<PrivateRoute />}>
           <Route path="/felinos" element={<Felinos />} />
           <Route path="/felino" element={<Felino />} />
           <Route path="/cat" element={<Cat />} />
