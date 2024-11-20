@@ -15,9 +15,11 @@ export default function Header() {
       <div className="nav-links">
         <Link to="/sobre">Sobre</Link>
 
-        <Link to="/felinos">Felinos</Link>
-
-        <Link to="/profile">Perfil</Link>
+        {role ?
+          <>
+            <Link to="/felinos">Felinos</Link>
+            <Link to="/profile">Perfil</Link>
+          </> : null}
 
         {role === "admin" ? <Link to="/users">Usuários</Link> : null}
       </div>
