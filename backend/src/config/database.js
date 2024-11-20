@@ -6,19 +6,20 @@ class Database {
   }
 
   initDB() {
-    this.db = new Sequelize({
-      database: process.env.DB_DATABASE,
-      host: process.env.DB_HOST,
-      username: process.env.DB_NAME,
-      password: process.env.DB_PASSWORD,
-      dialect: process.env.DB_DIALECT,
+    this.db = new Sequelize(
+      // database: process.env.DB_DATABASE,
+      // host: process.env.DB_HOST,
+      // username: process.env.DB_NAME,
+      // password: process.env.DB_PASSWORD,
+      // dialect: process.env.DB_DIALECT,
+      process.env.DB_EXTERNAL_URL, {
 
-      // dialectOptions: {
-      //   ssl: {
-      //     require: true,
-      //     rejectUnauthorized: false,
-      //   },
-      // },
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      },
     });
     console.log(process.env.DB_PASS);
   }
