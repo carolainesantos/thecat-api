@@ -36,7 +36,6 @@ Esse processo não apenas organiza e otimiza a comunicação com a API, mas tamb
    - **TheCatAPI** fornece imagens e dados detalhados sobre gatos, consumidos pelo backend e enviados ao frontend.
    - **bcrypt** para hashing seguro de senhas, garantindo a segurança dos dados dos usuários.
    - **CORS** para controle de acessos, assegurando que apenas o frontend autorizado interaja com o backend.
-   - **Axios** também utilizado no backend para fazer requisições à TheCatAPI e integrar as informações de forma estruturada.
 
 
 ### 🔒 Segurança
