@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import translate from "translate";
 translate.engine = "google";
+import { toast } from "react-toastify";
 import "./styles.css";
 
 const Felino = () => {
@@ -24,7 +25,7 @@ const Felino = () => {
       const imageData = await imageResponse.json();
       setCatImage(imageData[0].url);
     } catch (error) {
-      console.error("Erro ao carregar dados:", error);
+      toast.error("Erro ao carregar dados:", error);
     }
   };
 
@@ -34,6 +35,7 @@ const Felino = () => {
 
   return (
     <div className="felino-page-info">
+      <div className="conteudo">
       <div className="container-fatos">
         <h1 id="title-curiosidades">Fatos & Curiosidades!</h1>
         <div className="felino-content2">
@@ -41,6 +43,7 @@ const Felino = () => {
           <div className="info">
             <p>{catFact}</p>
           </div>
+        </div>
         </div>
         <button onClick={() => navigate(-1)}>Voltar</button>
       </div>

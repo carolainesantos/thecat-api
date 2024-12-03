@@ -2,10 +2,11 @@
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  color: #d4d1d1;
+  color: #bc80df;
   margin-bottom: 30px;
   margin-top: 60px;
 }
+
 
 .flex-container {
   display: flex;

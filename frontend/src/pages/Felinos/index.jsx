@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/Context";
 import AddButton from "../../components/AddButton";
-import { FaTrashAlt, FaEdit } from "react-icons/fa"; // Importar os ícones
 
 export default function Felinos() {
   const { role } = useContext(AuthContext);
@@ -27,11 +26,11 @@ export default function Felinos() {
       if (!confirmDelete) return;
 
       await deleteCat(id);
-      toast("Deletado com Sucesso");
+      toast.success("Deletado com Sucesso");
       await listar();
     } catch (error) {
       if (error.status === 403) {
-        toast("Você não possui permissão");
+        toast.warn("Você não possui permissão");
       }
     }
   }

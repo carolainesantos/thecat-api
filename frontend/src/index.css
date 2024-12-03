@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #F5F7F8;
 }
 
 .cat-inicio {

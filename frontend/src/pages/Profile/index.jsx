@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { deleteUser, getContext, updateUser } from "../../api/user";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
+import DetailPerfil from "../../assets/img/detail-perfil.png";
+import ImgPerfil from "../../assets/img/img-perfil.png";
 
 export default function Profile() {
   const { logout } = useContext(AuthContext);
@@ -19,12 +21,20 @@ export default function Profile() {
   const [updName, setUpdName] = useState("");
   const [updTel, setUpdTel] = useState("");
   const [updDtNasc, setUpdDtNasc] = useState("");
-  // Aqui blocked
+ 
   const [updCep, setUpdCep] = useState("");
   const [updEmail, setUpdEmail] = useState("");
   const [updPassword, setUpdPassword] = useState("");
   const [isUpdate, setIsUpdate] = useState(false);
   const navigate = useNavigate();
+
+  function ajustarData(data) {
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    console.log(data)
+    return `${dia}/${mes}/${ano}`;
+  }
 
   async function carregarPerfil() {
     try {
@@ -33,12 +43,12 @@ export default function Profile() {
         setId(user.id);
         setName(user.name);
         setTel(user.tel);
-        setDtNasc(user.dtNasc);
+        setDtNasc(ajustarData(new Date(user.dtNasc)));
         setCep(user.cep);
         setEmail(user.email);
       }
     } catch (error) {
-      toast("Erro inesperado, tente novamente mais tarde!");
+      toast.error("Erro inesperado, tente novamente mais tarde!");
     }
   }
 
@@ -64,7 +74,7 @@ export default function Profile() {
       }
     } catch (error) {
       console.log(error);
-      toast("Erro inesperado, tente novamente mais tarde!");
+      toast.error("Erro inesperado, tente novamente mais tarde!");
     }
   };
 
@@ -88,10 +98,10 @@ export default function Profile() {
           navigate("/");
         }
       } else {
-        toast("Nome Inválido, processo cancelado.");
+        toast.error("Nome Inválido, processo cancelado.");
       }
     } catch (error) {
-      toast("Erro inesperado, tente novamente mais tarde!");
+      toast.error("Erro inesperado, tente novamente mais tarde!");
     }
   };
 
@@ -105,97 +115,110 @@ export default function Profile() {
   return (
     <div className="profile">
       <div className="info">
-        <div className="icons">
-          <FaEdit onClick={handleClickUpdate} className="icon edit-icon" />
-          <FaTrashAlt
-            onClick={handleClickDelete}
-            className="icon delete-icon"
-          />
-        </div>
-        <h1>Dados do seu perfil</h1>
-        <p>
-          Nome:
-          {!isUpdate ? (
-            name
-          ) : (
-            <input
-              type="name"
-              id="name"
-              value={updName}
-              onChange={(e) => setUpdName(e.target.value)}
-            />
-          )}
-        </p>
-        <p>
-          Email:
-          {!isUpdate ? (
-            email
-          ) : (
-            <input
-              type="email"
-              id="email"
-              value={updEmail}
-              onChange={(e) => setUpdEmail(e.target.value)}
-            />
-          )}
-        </p>
-        <p>
-          Cep:
-          {!isUpdate ? (
-            cep
-          ) : (
-            <input
-              type="numero"
-              id="cep"
-              value={updCep}
-              onChange={(e) => setUpdDtNasc(e.target.value)}
-            />
-          )}
-        </p>
-        <p>
-          Telefone:
-          {!isUpdate ? (
-            tel
-          ) : (
-            <input
-              type="numero"
-              id="tel"
-              value={updTel}
-              onChange={(e) => setUpdTel(e.target.value)}
-            />
-          )}
-        </p>
-        <p>
-          Data de Nascimento:
-          {!isUpdate ? (
-            dtNasc
-          ) : (
-            <input
-              type="dtNasc"
-              id="dtNasc"
-              value={updDtNasc}
-              onChange={(e) => setUpdDtNasc(e.target.value)}
-            />
-          )}
-        </p>
 
-        {isUpdate && (
-          <p>
-            Senha:
-            <input
-              type="text"
-              id="password"
-              value={updPassword}
-              onChange={(e) => setUpdPassword(e.target.value)}
+        <div className="profile-header">
+          
+          <img className="imgPerfil" src={ImgPerfil} alt="Img-Perfil" />
+
+          <div>
+            <h1>Dados do Perfil</h1>
+            <img className="detailPerfil" src={DetailPerfil} alt="Detail-Perfil" />
+          </div>
+
+          <div className="icons">
+            <FaEdit onClick={handleClickUpdate} className="icon edit-icon" />
+            <FaTrashAlt
+              onClick={handleClickDelete}
+              className="icon delete-icon"
             />
+          </div>
+        </div>
+
+        
+        <div className="profile-info">
+          <p className="nome">
+            Nome: &nbsp;
+            {!isUpdate ? (
+              name
+            ) : (
+              <input
+                type="name"
+                id="name"
+                value={updName}
+                onChange={(e) => setUpdName(e.target.value)}
+              />
+            )}
           </p>
-        )}
+          <p>
+            Email: &nbsp;
+            {!isUpdate ? (
+              email
+            ) : (
+              <input
+                type="email"
+                id="email"
+                value={updEmail}
+                onChange={(e) => setUpdEmail(e.target.value)}
+              />
+            )}
+          </p>
+          <p>
+            Cep: &nbsp;
+            {!isUpdate ? (
+              cep
+            ) : (
+              <input
+                type="numero"
+                id="cep"
+                value={updCep}
+                onChange={(e) => setUpdDtNasc(e.target.value)}
+              />
+            )}
+          </p>
+          <p>
+            Telefone: &nbsp;
+            {!isUpdate ? (
+              tel
+            ) : (
+              <input
+                type="numero"
+                id="tel"
+                value={updTel}
+                onChange={(e) => setUpdTel(e.target.value)}
+              />
+            )}
+          </p>
+          <p>
+            Data de Nascimento: &nbsp;
+            {!isUpdate ? (
+              dtNasc
+            ) : (
+              <input
+                type="dtNasc"
+                id="dtNasc"
+                value={updDtNasc}
+                onChange={(e) => setUpdDtNasc(e.target.value)}
+              />
+            )}
+          </p>
+          {isUpdate && (
+            <p>
+              Senha: &nbsp;
+              <input
+                type="text"
+                id="password"
+                value={updPassword}
+                onChange={(e) => setUpdPassword(e.target.value)}
+              />
+            </p>
+          )}
+        </div>
         {!isUpdate ? (
           <div className="actions"></div>
         ) : (
           <div className="actions">
-            <button onClick={() => setIsUpdate(false)}>Cancelar</button>
-            <button className="primary" onClick={handleSaveUpdate}>
+            <button className="voltar-dados" onClick={() => setIsUpdate(false)}>Voltar</button>
+            <button className="salvar" onClick={handleSaveUpdate}>
               Salvar
             </button>
           </div>

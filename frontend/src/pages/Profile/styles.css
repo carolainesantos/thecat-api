@@ -2,19 +2,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 70px;
 }
 .profile .info {
   padding: 25px;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 15px;
-  width: 500px;
+  width: 700px;
+  border: solid 1px #9649d1;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
-.profile h1 {
-  border-bottom: 2px solid #b58afc;
-  padding: 10px 0;
-  width: 100%;
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.profile-info {
+  padding: 50px;
+}
+
+h1{
+  color: #9649d1;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 28px;
+}
+
 .profile .actions {
   display: flex;
   justify-content: center;
@@ -26,10 +41,7 @@
   color: #fccd2a;
   width: 170px;
 }
-.profile .actions button:hover {
-  background-color: #b58ff3;
-  color: #fccd2a;
-}
+
 .profile input {
   width: 100%;
   padding: 8px;
@@ -38,17 +50,12 @@
   box-sizing: border-box;
 }
 
-.profile .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .icons {
-  margin-left: 435px;
   display: flex;
-  font-size: 22px;
-  gap: 0px;
+  svg{
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .icon {
@@ -60,4 +67,49 @@
 
 .icon:hover {
   transform: scale(1.1);
+}
+
+.profile .info p {
+  margin-bottom: 12px; 
+  color: #31304D;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px;
+}
+
+.detailPerfil{
+  display: block;
+  margin: 0px auto; 
+  max-width: 220px; 
+  height: auto;
+}
+
+.imgPerfil{
+  max-width: 70px; 
+  object-fit: cover;
+}
+
+.voltar-dados{
+  width: 180px;
+  font-size: 16px;
+}
+
+.salvar{
+  width: 180px;
+  font-size: 16px;
+  color: #fbb32e;
+}
+
+.salvar:hover{
+  background-color: #4b0082;
+  color: #fbb32e;
+}
+
+.actions {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+p input {
+  margin-bottom: 18px;
 }
