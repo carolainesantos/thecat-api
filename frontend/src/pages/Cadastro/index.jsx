@@ -8,7 +8,7 @@ export default function Cadastro() {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   const [name, setName] = useState("");
@@ -31,20 +31,22 @@ export default function Cadastro() {
         password,
       });
       console.log(responseApi);
+
       if (responseApi.id) {
-        navigate("/login");
+        toast.success("Usuário criado com sucesso!"); 
+        setTimeout(() => navigate("/login"), 2000);
       } else {
         console.log(responseApi);
       }
     } catch (error) {
       console.log(error);
       if (error.status === 403) {
-        return toast("Sem permissão.");
+        return toast.error("Sem permissão.");
       }
       if (error.status === 401 || error.status === 404) {
-        return toast("Email ou senha inválido, tente novamente!");
+        return toast.warn("Email ou senha inválido, tente novamente!");
       }
-      toast("Erro inesperado, tente novamente mais tarde!");
+      toast.error("Erro inesperado, tente novamente mais tarde!");
     }
   };
 
@@ -60,7 +62,7 @@ export default function Cadastro() {
             <div className="input-container">
               <label htmlFor="nome">Nome Completo</label>
               <input
-                type="texto"
+                type="text"
                 id="nome"
                 name="nome"
                 placeholder="nome"
@@ -73,7 +75,7 @@ export default function Cadastro() {
             <div className="input-container">
               <label htmlFor="tel">Telefone</label>
               <input
-                type="numero"
+                type="tel"
                 id="tel"
                 name="tel"
                 placeholder="(xx) xxxx-xxxx"
@@ -115,7 +117,7 @@ export default function Cadastro() {
             <div className="input-container">
               <label htmlFor="email">Email</label>
               <input
-                type="texto"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="email"

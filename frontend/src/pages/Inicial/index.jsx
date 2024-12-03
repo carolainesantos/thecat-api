@@ -8,7 +8,7 @@ export default function Inicial() {
       </h1>
       <div id="inicio-conteudo-home">
         Saiba tudo sobre o mundo felino e leve a vida mais rom-rom!
-        <br /> Aqui você verá dicas, curiosidades sobre gatos.
+        <br /> Aqui você verá dicas e curiosidades sobre gatos.
       </div>
     </div>
   );
