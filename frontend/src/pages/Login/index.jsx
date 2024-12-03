@@ -29,16 +29,14 @@ export default function Login() {
       if (responseApi.token) {
         login(responseApi.token);
         navigate("/");
-      } else {
-        // console.log(responseApi);
-      }
+      } 
     } catch (error) {
       console.log(error);
       if (error.status === 403) {
-        return toast("Sem permissão.");
+        return toast.warn("Sem permissão.");
       }
       if (error.status === 401 || error.status === 404) {
-        return toast("Email ou senha inválido, tente novamente!");
+        return toast.error("Email ou senha inválido, tente novamente!");
       }
       toast("Erro inesperado, tente novamente mais tarde!");
     }
@@ -78,7 +76,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <p>
-              Não Possui conta?
+              Não Possui conta? &nbsp;
               <span onClick={handleRegisterClick} className="register-link">
                 Clique Aqui
               </span>

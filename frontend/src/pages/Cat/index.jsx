@@ -36,12 +36,12 @@ export default function Cat() {
     } catch (error) {
       console.log(error);
       if (error.status === 403) {
-        return toast("Sem permissão.");
+        return toast.error("Sem permissão.");
       }
       if (error.status === 401 || error.status === 404) {
-        return toast("Email ou senha inválido, tente novamente!");
+        return toast.error("Email ou senha inválido, tente novamente!");
       }
-      toast("Erro inesperado, tente novamente mais tarde!");
+      toast.error("Erro inesperado, tente novamente mais tarde!");
     }
   };
 

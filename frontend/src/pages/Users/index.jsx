@@ -24,12 +24,20 @@ export default function ListUsers() {
 
       await deleteUserAdmin(id);
       await listar();
-      toast("Deletado com Sucesso");
+      toast.success("Deletado com Sucesso");
     } catch (error) {
       if (error.status === 403) {
-        toast("Você não possui permissão");
+        toast.warn("Você não possui permissão");
       }
     }
+  }
+
+  function ajustarData(data) {
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    console.log(data)
+    return `${dia}/${mes}/${ano}`;
   }
 
   async function listar() {
@@ -43,7 +51,7 @@ export default function ListUsers() {
       <tr key={user.id}>
         <td>{user.name}</td>
         <td>{user.tel}</td>
-        <td>{user.dtNasc}</td>
+        <td style={{ textAlign: "center" }}>{ajustarData(new Date(user.dtNasc))}</td>
         <td>{user.cep}</td>
         <td>{user.email}</td>
         <td>{user.blocked ? "sim" : "não"}</td>

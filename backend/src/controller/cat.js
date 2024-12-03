@@ -38,7 +38,7 @@ class CatsController {
       const apiKey =
         "live_hVIZ29uXTZKRfZBeO3EcBdrThj9U5vw88QF9QOFijGEAIaWVjyNRqFMNPJ6WT1qf ";
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?limit=101&api_key=${apiKey}`
+        `https://api.thecatapi.com/v1/images/search?limit=100&api_key=${apiKey}`
       );
       const apiData = await response.json();
 
@@ -65,12 +65,6 @@ class CatsController {
     }
 
     return cats;
-
-    // se não retornar nada, fazer fetch na api
-    // fazer este fetch https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME
-    // o retorno do fetch fazer um map para pegar o id e fazer outro fetch
-    // fetch https://api.thecatapi.com/v1/images/<id>
-    // as informaçoes do segundo fetch salvar no banco
   }
 
   async update(id, breed, temperament, image) {

@@ -5,8 +5,6 @@ body {
   color: #6c22a6;
   font-size: 42px;
   font-weight: 800;
-  font-family: "Livvic", sans-serif;
-  margin: 60px;
 }
 
 .felino-page-info {
@@ -24,10 +22,10 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-
   border: 1px solid #bc80df;
   border-radius: 10px;
   padding: 20px;
+  flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
 }
@@ -43,14 +41,25 @@ body {
   text-align: left;
 }
 
+.conteudo {
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  justify-content: space-between; /* Distribui os elementos com espaço entre eles */
+  margin: 20px 60px; /* Ajusta o espaçamento do grupo */
+}
+
 button {
-  margin-top: 20px;
+  align-items:center ;
+  margin-left: 20px;
   padding: 10px 20px;
   border: none;
   background-color: #6c22a6;
   color: #fff;
+  font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
+  width: 150px;
+  height: 50px;
   cursor: pointer;
 }
 
